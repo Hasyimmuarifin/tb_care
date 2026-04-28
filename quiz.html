@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TBC Quiz — Start Quiz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="quiz.css" />
+  </head>
+  <body>
+    <!-- Name prompt overlay -->
+    <div class="overlay" id="name-overlay">
+      <div class="name-modal">
+        <div style="font-size: 2.5rem; margin-bottom: 16px">🧠</div>
+        <h2>Siapa namamu?</h2>
+        <p>
+          Masukkan namamu sebelum memulai kuis. Nama ini akan dicatat bersama
+          skor kamu.
+        </p>
+        <div class="input-wrap">
+          <input
+            class="name-input"
+            type="text"
+            id="name-input"
+            placeholder="Tulis namamu di sini..."
+            maxlength="60"
+            autocomplete="off"
+          />
+        </div>
+        <button
+          class="btn-primary"
+          style="width: 100%; justify-content: center"
+          onclick="startQuiz()"
+        >
+          Mulai Quiz →
+        </button>
+      </div>
+    </div>
+
+    <div class="page">
+      <!-- Topbar -->
+      <div class="topbar">
+        <a href="index.html" class="back-btn">← Beranda</a>
+        <span class="quiz-label">TBC Quiz</span>
+      </div>
+
+      <!-- Progress -->
+      <div class="progress-wrap" id="progress-wrap">
+        <div class="progress-meta">
+          <span id="q-count">Soal 1 dari 10</span>
+          <span id="q-score">Skor: 0</span>
+        </div>
+        <div class="progress-track">
+          <div
+            class="progress-fill"
+            id="progress-fill"
+            style="width: 10%"
+          ></div>
+        </div>
+      </div>
+
+      <!-- Quiz card -->
+      <div class="q-card" id="quiz-card">
+        <span class="q-number" id="q-number">Soal 01</span>
+        <div class="q-text" id="q-text"></div>
+        <div class="options-list" id="options-list"></div>
+        <div class="feedback" id="feedback">
+          <span class="feedback-icon" id="fb-icon"></span>
+          <span id="fb-text"></span>
+        </div>
+        <div class="nav-row">
+          <button class="btn-next" id="btn-next" onclick="nextQuestion()">
+            <span id="next-label">Soal Berikutnya</span> →
+          </button>
+        </div>
+      </div>
+
+      <!-- Result screen -->
+      <div id="result-screen">
+        <div class="result-icon" id="result-icon">🎉</div>
+        <div class="result-grade" id="result-grade">Perfect!</div>
+        <div class="result-score" id="result-score">10/10</div>
+        <div class="result-subtitle" id="result-subtitle">
+          Selesai! Hasil kamu sudah tersimpan.
+        </div>
+        <div class="result-card">
+          <div class="result-stat-grid">
+            <div class="stat-item">
+              <div class="stat-val" id="stat-benar" style="color: var(--teal)">
+                —
+              </div>
+              <div class="stat-lbl">Jawaban Benar</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-val" id="stat-salah" style="color: var(--red)">
+                —
+              </div>
+              <div class="stat-lbl">Jawaban Salah</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-val" id="stat-pct" style="color: var(--accent)">
+                —
+              </div>
+              <div class="stat-lbl">Persentase</div>
+            </div>
+          </div>
+        </div>
+        <div class="result-actions">
+          <button class="btn-primary" onclick="location.reload()">
+            🔄 Ulangi Quiz
+          </button>
+          <a class="btn-secondary" href="dashboard.html">📊 Lihat Dashboard</a>
+          <a class="btn-secondary" href="index.html">← Beranda</a>
+        </div>
+        <p class="saving-msg" id="saving-msg">💾 Menyimpan skor...</p>
+      </div>
+    </div>
+    <script src="quiz.js"></script>
+  </body>
+</html>

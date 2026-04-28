@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TBC Quiz — Dashboard Recap</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+    <link rel="stylesheet" href="dashboard.css" />
+  </head>
+  <body>
+    <div class="page">
+      <!-- Topbar -->
+      <div class="topbar">
+        <a href="index.html" class="back-btn">← Beranda</a>
+        <button class="refresh-btn" id="refresh-btn" onclick="loadData()">
+          <span class="icon">⟳</span> Refresh
+        </button>
+      </div>
+
+      <!-- Header -->
+      <div class="dash-header">
+        <div class="dash-label">
+          <span class="live-dot"></span> Live Data · Supabase
+        </div>
+        <h1>Dashboard Recap</h1>
+        <p>Statistik peserta kuis TBC secara keseluruhan</p>
+      </div>
+
+      <!-- Stat Cards -->
+      <div class="stats-row">
+        <div class="stat-card total">
+          <div class="stat-icon">👥</div>
+          <div class="stat-val" id="st-total">—</div>
+          <div class="stat-lbl">Total Peserta</div>
+          <div class="stat-sub">semua yang sudah ikut kuis</div>
+        </div>
+        <div class="stat-card perfect">
+          <div class="stat-icon">🏆</div>
+          <div class="stat-val" id="st-perfect">—</div>
+          <div class="stat-lbl">Perfect (10/10)</div>
+          <div class="stat-sub">semua jawaban benar</div>
+        </div>
+        <div class="stat-card good">
+          <div class="stat-icon">⭐</div>
+          <div class="stat-val" id="st-good">—</div>
+          <div class="stat-lbl">Good (≥6/10)</div>
+          <div class="stat-sub">enam atau lebih benar</div>
+        </div>
+        <div class="stat-card fair">
+          <div class="stat-icon">💪</div>
+          <div class="stat-val" id="st-fair">—</div>
+          <div class="stat-lbl">Fair (≥3/10)</div>
+          <div class="stat-sub">tiga hingga lima benar</div>
+        </div>
+      </div>
+
+      <!-- Bar Chart -->
+      <div class="chart-section">
+        <div class="section-title">Distribusi Nilai Peserta</div>
+        <div class="section-sub">Jumlah peserta per kategori nilai</div>
+        <div class="chart-wrap">
+          <canvas id="barChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Recent entries table -->
+      <div class="recent-section">
+        <div class="section-title">Peserta Terbaru</div>
+        <div class="section-sub" style="margin-bottom: 20px">
+          20 peserta terakhir yang menyelesaikan kuis
+        </div>
+        <div class="table-wrap">
+          <div id="table-container">
+            <div class="loading-state">
+              <div class="loading-spinner"></div>
+              <div>Memuat data...</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+    </script>
+  </body>
+</html>

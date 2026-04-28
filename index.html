@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="id">
+  <!-- HEAD -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TB Care</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="logo2.png">
+  </head>
+
+  <!-- BODY -->
+  <body>
+    <!-- Audio -->
+    <audio id="bg-music" autoplay muted loop>
+      <source src="music.mpeg" type="audio/mpeg">
+    </audio>
+
+    <!-- Tombol Lingkaran -->
+    <div id="music-btn">
+      <img src="toss.png" alt="music">
+    </div>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <div class="logo">
+          <img src="logo.png" alt="Logo" />
+        </div>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#info">Info</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#tutorial">Tutorial</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#quiz">Quiz</a></li>
+        </ul>
+        <!-- Hamburger -->
+        <div class="hamburger" id="hamburger">☰</div>
+      </div>
+    </nav>
+
+    <!-- Hero / Home -->
+    <section class="hero" id="home">
+      <div class="overlay"></div>
+      <div class="hero-content">
+        <h1>Hai, Sobat TB CARE! 👋</h1>
+        <p>Mari kenali TB lebih dekat, Cegah sebelum terlambat</p>
+      </div>
+    </section>
+
+    <!-- Section lainnya -->
+    <section id="info" class="info-section">
+      <div class="container">
+        <!-- Judul Dinamis -->
+        <h2 id="info-title">Edukasi TBC</h2>
+        <p class="subtitle" id="info-subtitle">
+          Kenali perbedaan TBC Aktif dan TBC Laten
+        </p>
+
+        <!-- Carousel -->
+        <div class="carousel">
+          <div class="carousel-track" id="carouselTrack">
+            <!-- Slide 1 -->
+            <div class="slide active">
+              <img src="tbc-info1.png" alt="TBC Aktif vs Laten" />
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="slide">
+              <img src="tbc-info2.png" alt="Pencegahan TBC" />
+            </div>
+          </div>
+
+          <!-- Navigasi -->
+          <button class="nav prev" onclick="prevSlide()">❮</button>
+          <button class="nav next" onclick="nextSlide()">❯</button>
+
+          <!-- Indicator -->
+          <div class="dots">
+            <span class="dot active" onclick="goToSlide(0)"></span>
+            <span class="dot" onclick="goToSlide(1)"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="about" class="about-section fade-in">
+      <div class="container">
+        <!-- Judul -->
+        <h2 class="about-title">Tentang TB CARE</h2>
+
+        <!-- Icon Logo -->
+        <div class="about-icon">
+          <img src="logo.png" alt="TB Care Icon" />
+        </div>
+
+        <br />
+
+        <!-- Deskripsi -->
+        <div class="about-content">
+          <p>
+            <strong
+              >TB CARE (Tuberkulosis Care, Awareness, and RealEducation)
+            </strong>
+            adalah media edukasi kesehatan digital yang hadir untuk membantu
+            masyarakat memahami Tuberkulosis (TB) dengan cara yang mudah,
+            menarik, dan dapat diakses kapan saja.
+          </p>
+
+          <p>
+            Website ini dikembangkan sebagai bentuk kepedulian terhadap
+            tingginya kasus TB di masyarakat, sekaligus upaya untuk meningkatkan
+            kesadaran akan pentingnya pencegahan dan deteksi dini TB.
+          </p>
+        </div>
+
+        <!-- Highlight Dropdown -->
+        <div class="about-highlight active">
+          <!-- Header (yang selalu terlihat) -->
+          <div class="highlight-header" onclick="toggleHighlight()">
+            <h3>Mengapa TB CARE Hadir ?</h3>
+            <span class="arrow">▼</span>
+          </div>
+
+          <!-- Content (default tertutup) -->
+          <div class="highlight-content" id="highlightContent">
+            <p>
+              Indonesia masih menjadi salah satu negara dengan kasus TB
+              terbanyak di dunia. Sayangnya, masih banyak masyarakat yang belum
+              mengetahui gejala, cara penularan, hingga pentingnya pengobatan
+              tuntas TB. Kurangnya informasi yang mudah dijangkau sering kali
+              membuat TB terlambat terdeteksi dan stigma terhadap penderita pun
+              masih tinggi.
+            </p>
+
+            <p>
+              <strong
+                >TB CARE hadir sebagai jembatan antara informasi kesehatan yang
+                akurat dengan masyarakat yang membutuhkannya.</strong
+              >
+              Platform ini dikemas dengan cara yang menyenangkan dan mudah
+              dipahami oleh siapa saja.
+            </p>
+
+            <br />
+
+            <div class="features">
+              <h3>Fitur yang Tersedia :</h3>
+              <ul>
+                <li>
+                  🎬 <strong>Video Edukatif</strong> - seputar pencegahan dan
+                  pengobatan TB
+                </li>
+                <li>
+                  📖 <strong>Flipbook</strong> — Modul digital lengkap tentang
+                  TB yang bisa dibaca kapan saja
+                </li>
+                <li>
+                  ✅ <strong>Kuis</strong> — Uji pemahamanmu tentang TB dengan
+                  soal interaktif
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="tutorial" class="tutorial-section">
+      <div class="container">
+        <!-- Judul -->
+        <h2 class="section-title fade-in">Tutorial Penggunaan TB CARE</h2>
+        <p class="subtitle fade-in">
+          Ikuti langkah sederhana berikut untuk mulai belajar tentang TBC
+        </p>
+      </div>
+      <div class="tutorial-steps">
+        <!-- Step 1 -->
+        <div class="step fade-in">
+          <div class="step-content">
+            <div class="step-icon">🔍</div>
+            <div class="step-text">
+              <h3>1. Akses Website</h3>
+              <p>
+                Buka website TB CARE dengan cara scan barcode yang tersedia pada
+                <strong>Roda Informatif TB CARE</strong>.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step fade-in">
+          <div class="step-content">
+            <div class="step-icon">📱</div>
+            <div class="step-text">
+              <h3>2. Pilih Fitur Belajar</h3>
+              <p>Klik menu sesuai kebutuhan belajar Anda:</p>
+              <ul>
+                <li>
+                  🎬 <strong>Video Materi :</strong>
+                  Berisi video edukatif seputar pengenalan TB, pencegahan,
+                  pengobatan, dan cara mendukung penderita TB
+                </li>
+                <li>
+                  📖 <strong>Flipbook :</strong>
+                  Berisi modul bacaan interaktif yang dapat dibuka layaknya buku
+                  digital, memuat informasi lengkap tentang TB secara ringkas
+                  dan menarik
+                </li>
+                <li>
+                  ✅ <strong>Kuis :</strong>
+                  Berisi soal-soal pilihan untuk menguji sejauh mana pemahaman
+                  Anda tentang TB setelah mempelajari materinya
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step fade-in">
+          <div class="step-content">
+            <div class="step-icon">📚</div>
+            <div class="step-text">
+              <h3>3. Mulai Belajar</h3>
+              <p>
+                Nikmati proses belajar yang interaktif dan menyenangkan. Jangan
+                ragu untuk mengeksplorasi semua fitur yang tersedia untuk
+                mendapatkan pemahaman yang lebih baik tentang TB. Mulai belajar
+                sesuai urutan yang disarankan untuk hasil terbaik:
+              </p>
+              <ul>
+                <li>Tonton <strong>Video Materi</strong> terlebih dahulu</li>
+                <li>
+                  Baca <strong>Flipbook</strong> untuk memperdalam pemahaman
+                </li>
+                <li>
+                  Kerjakan <strong>Kuis</strong> untuk menguji pengetahuan Anda
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="education" class="education-section">
+      <div class="container">
+        <!-- Judul -->
+        <h2 class="section-title fade-in">Yuk, Kenali TB lebih dekat!</h2>
+        <div class="card-container">
+          <div class="card-item">
+            <a href="#video" class="card">
+              <img src="video.png" alt="Video Edukatif" />
+            </a>
+            <p>Video Edukatif</p>
+          </div>
+
+          <div class="card-item">
+            <a href="#flipbook-section" class="card">
+              <img src="flipbook.png" alt="Flipbook" />
+            </a>
+            <p>Flipbook</p>
+          </div>
+
+          <div class="card-item">
+            <a href="#quiz" class="card">
+              <img src="kuis.png" alt="Quiz" />
+            </a>
+            <p>Quiz</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="video-section" id="video">
+      <h2 class="video-title">Video Edukatif</h2>
+
+      <div class="video-container">
+        <iframe
+          src="https://www.youtube.com/embed/202hkf43HXQ"
+          title="YouTube video"
+          frameborder="0"
+          allow="
+            accelerometer;
+            autoplay;
+            clipboard-write;
+            encrypted-media;
+            gyroscope;
+            picture-in-picture;
+          "
+          allowfullscreen
+        >
+        </iframe>
+      </div>
+    </section>
+    <section id="flipbook-section" class="flipbook-section">
+      <h2 class="flipbook-title">Flipbook</h2>
+      <div class="flipbook-wrapper">
+        <div class="flipbook">
+          <div>
+            <img src="flipbook/1.png" alt="" />
+          </div>
+          <div>
+            <img src="flipbook/2.png" alt="" />
+          </div>
+          <div>
+            <img src="flipbook/3.png" alt="" />
+          </div>
+          <div>
+            <img src="flipbook/4.png" alt="" />
+          </div>
+          <div>
+            <img src="flipbook/5.png" alt="" />
+          </div>
+          <div>
+            <img src="flipbook/6.png" alt="" />
+          </div>
+          <div>
+            <img src="flipbook/7.png" alt="" />
+          </div>
+          <div>
+            <img src="flipbook/8.png" alt="" />
+          </div>
+          <div>
+            <img src="flipbook/9.png" alt="" />
+          </div>
+          <div>
+            <img src="flipbook/10.png" alt="" />
+          </div>
+          <div>
+            <img src="flipbook/11.png" alt="" />
+          </div>
+          <div>
+            <img src="flipbook/12.png" alt="" />
+          </div>
+          <div>
+            <img src="flipbook/13.png" alt="" />
+          </div>
+          <div>
+            <img src="flipbook/14.png" alt="" />
+          </div>
+          <div>
+            <img src="flipbook/15.png" alt="" />
+          </div>
+          <div>
+            <img src="flipbook/16.png" alt="" />
+          </div>
+          <div>
+            <img src="flipbook/17.png" alt="" />
+          </div>
+          <div>
+            <img src="flipbook/18.png" alt="" />
+          </div>
+          <div>
+            <img src="flipbook/19.png" alt="" />
+          </div>
+          <div class="hard"></div>
+        </div>
+      </div>
+    </section>
+    <section id="quiz" class="quiz-section">
+      <h2 class="quiz-title">Quiz</h2>
+
+      <div class="quiz-container">
+        
+        <!-- KIRI: GAMBAR -->
+        <div class="quiz-image">
+          <img src="quiz.png" alt="Quiz Illustration">
+        </div>
+
+        <!-- KANAN: BUTTON -->
+        <div class="quiz-actions">
+          <a href="quiz.html" class="btn btn-primary">Mulai Quiz</a>
+          <a href="dashboard.html" class="btn btn-secondary">Dashboard Nilai</a>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+
+      <!-- CTA (MASUK KE DALAM FOOTER) -->
+      <div class="footer-cta">
+        <h3>Yuk Bergabung Bersama Kami ! 💙</h3>
+        <p>
+          Jadilah bagian dari gerakan menuju Indonesia bebas TB. Mulai dari diri
+          sendiri, mulai dari sekarang, mulai dari TB CARE.
+        </p>
+        <a href="#" class="cta-btn">Mulai Sekarang</a>
+      </div>
+
+      <div class="footer-container">
+
+        <!-- KOLOM 1 -->
+        <div class="footer-col">
+          <div class="footer-logo">
+            <img src="logo.png" alt="Logo">
+            <h3>TB CARE</h3>
+          </div>
+
+          <p class="footer-desc">
+            Platform edukasi dan quiz interaktif untuk meningkatkan kesadaran
+            masyarakat tentang Tuberkulosis (TB).
+          </p>
+
+          <br />
+          <p>Dikembangkan di :</p>
+          <br />
+
+          <div class="footer-logo2">
+            <img src="logo_poltekkes.png" alt="Logo">
+          </div>
+        </div>
+
+        <!-- KOLOM LAIN TETAP -->
+        <div class="footer-col">
+          <h4>Menu</h4>
+          <ul>
+            <li><a href="#home">Beranda</a></li>
+            <li><a href="#education">Edukasi</a></li>
+            <li><a href="#quiz">Quiz</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Kontak</h4>
+          <p>Email: tbcare@gmail.com</p>
+          <p>Telp: +62 812-1651-8892</p>
+          <p>Semarang, Indonesia</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Ikuti Kami</h4>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 TB CARE. All rights reserved.</p>
+      </div>
+
+    </footer>
+    <script src="script.js"></script>
+    <script src="jquery.js"></script>
+    <script src="turn.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script>
+      $(document).ready(function() {
+        fixCenter();
+      });
+      $('.flipbook').turn({
+        width: 1000,
+        height: 600,
+        autoCenter: true,
+        display: 'double'
+      });
+      $('.flipbook').bind('turned', function() {
+        fixCenter();
+      });
+    </script>
+  </body>
+</html>
