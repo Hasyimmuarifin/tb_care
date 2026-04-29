@@ -13,6 +13,13 @@ const music = document.getElementById("bg-music");
 const btn = document.getElementById("music-btn");
 const img = btn.querySelector("img");
 const cards = document.querySelectorAll('.developer-card');
+const modal = document.getElementById('profileModal');
+
+const modalImg = document.getElementById('modalImg');
+const modalName = document.getElementById('modalName');
+const modalNim = document.getElementById('modalNim');
+
+const closeBtn = document.querySelector('.close-btn');
 
 let isPlaying = false;
 music.muted = false;
@@ -150,11 +157,27 @@ const observer = new IntersectionObserver(entries => {
   threshold: 0.2
 });
 
+// Klik card
 cards.forEach(card => {
-  card.style.opacity = 0;
-  card.style.transform = "translateY(50px)";
-  card.style.transition = "all 0.6s ease";
-  observer.observe(card);
+  card.addEventListener('click', () => {
+    modal.classList.add('active');
+
+    modalImg.src = card.dataset.img;
+    modalName.textContent = card.dataset.name;
+    modalNim.textContent = card.dataset.nim;
+  });
+});
+
+// Tutup modal (X)
+closeBtn.addEventListener('click', () => {
+  modal.classList.remove('active');
+});
+
+// Tutup modal klik luar
+modal.addEventListener('click', (e) => {
+  if (e.target === modal) {
+    modal.classList.remove('active');
+  }
 });
 
 window.addEventListener("scroll", showOnScroll);
