@@ -12,6 +12,7 @@ const navLinks = document.querySelectorAll(".nav-menu li a");
 const music = document.getElementById("bg-music");
 const btn = document.getElementById("music-btn");
 const img = btn.querySelector("img");
+const cards = document.querySelectorAll('.developer-card');
 
 let isPlaying = false;
 music.muted = false;
@@ -136,6 +137,24 @@ btn.addEventListener("click", () => {
     img.classList.add("rotate");
   }
   isPlaying = !isPlaying;
+});
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = 1;
+      entry.target.style.transform = "translateY(0)";
+    }
+  });
+}, {
+  threshold: 0.2
+});
+
+cards.forEach(card => {
+  card.style.opacity = 0;
+  card.style.transform = "translateY(50px)";
+  card.style.transition = "all 0.6s ease";
+  observer.observe(card);
 });
 
 window.addEventListener("scroll", showOnScroll);
