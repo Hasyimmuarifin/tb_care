@@ -44,9 +44,24 @@
       </div>
     </nav>
 
+    <!-- Sidebar Menu -->
+    <div class="sidebar" id="sidebar">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#info">Info</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#tutorial">Tutorial</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#quiz">Quiz</a></li>
+      </ul>
+    </div>
+
+    <!-- Overlay (klik luar untuk close) -->
+    <div class="overlay" id="overlay"></div>
+
     <!-- Hero / Home -->
     <section class="hero" id="home">
-      <div class="overlay"></div>
+      <div class="hero-overlay"></div>
       <div class="hero-content">
         <h1>Hai, Sobat TB CARE! 👋</h1>
         <p>Mari kenali TB lebih dekat, Cegah sebelum terlambat</p>
@@ -497,6 +512,7 @@
     <script src="script.js"></script>
     <script src="jquery.js"></script>
     <script src="turn.js"></script>
+    <script src="turn.html4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
     <script>
       $(document).ready(function() {

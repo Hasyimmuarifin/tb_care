@@ -1,5 +1,8 @@
 let currentSlide = 0;
 
+const hamburger = document.getElementById("hamburger");
+const sidebar = document.querySelector(".sidebar");
+const overlay = document.querySelector(".overlay");
 const track = document.getElementById("carouselTrack");
 const dots = document.querySelectorAll(".dot");
 const title = document.getElementById("info-title");
@@ -12,17 +15,18 @@ const navLinks = document.querySelectorAll(".nav-menu li a");
 const music = document.getElementById("bg-music");
 const btn = document.getElementById("music-btn");
 const img = btn.querySelector("img");
-const cards = document.querySelectorAll('.developer-card');
-const modal = document.getElementById('profileModal');
+const cards = document.querySelectorAll(".developer-card");
+const modal = document.getElementById("profileModal");
 
-const modalImg = document.getElementById('modalImg');
-const modalName = document.getElementById('modalName');
-const modalNim = document.getElementById('modalNim');
+const modalImg = document.getElementById("modalImg");
+const modalName = document.getElementById("modalName");
+const modalNim = document.getElementById("modalNim");
 
-const closeBtn = document.querySelector('.close-btn');
+const closeBtn = document.querySelector(".close-btn");
 
 let isPlaying = false;
 music.muted = false;
+music.volume = 0.25;
 
 window.addEventListener("scroll", () => {
   let current = "";
@@ -31,7 +35,10 @@ window.addEventListener("scroll", () => {
     const sectionTop = section.offsetTop - 120; // offset navbar
     const sectionHeight = section.offsetHeight;
 
-    if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+    if (
+      window.scrollY >= sectionTop &&
+      window.scrollY < sectionTop + sectionHeight
+    ) {
       current = section.getAttribute("id");
     }
   });
@@ -43,15 +50,14 @@ window.addEventListener("scroll", () => {
       link.classList.add("active");
     }
   });
-  
-  navLinks.forEach(link => {
-    link.addEventListener("click", function () {
-      navLinks.forEach(l => l.classList.remove("active"));
-      this.classList.add("active");
-    });
-  });
 });
 
+navLinks.forEach((link) => {
+  link.addEventListener("click", function () {
+    navLinks.forEach((l) => l.classList.remove("active"));
+    this.classList.add("active");
+  });
+});
 
 window.addEventListener("scroll", () => {
   const trigger = hero.offsetHeight - 100;
@@ -73,6 +79,39 @@ const data = [
     subtitle: "Langkah sederhana untuk mencegah penyebaran TBC",
   },
 ];
+
+// buka sidebar
+hamburger.addEventListener("click", () => {
+  sidebar.classList.add("active");
+  overlay.classList.add("active");
+});
+
+// tutup sidebar klik overlay
+overlay.addEventListener("click", () => {
+  sidebar.classList.remove("active");
+  overlay.classList.remove("active");
+});
+
+// tutup sidebar klik menu
+document.querySelectorAll("#sidebar a").forEach((link) => {
+  link.addEventListener("click", () => {
+    sidebar.classList.remove("active");
+    overlay.classList.remove("active");
+  });
+});
+
+function openSidebar() {
+  sidebar.classList.add("active");
+  overlay.classList.add("active");
+}
+
+function closeSidebar() {
+  sidebar.classList.remove("active");
+  overlay.classList.remove("active");
+}
+
+// Klik overlay untuk close
+overlay.addEventListener("click", closeSidebar);
 
 function updateSlide() {
   track.style.transform = `translateX(-${currentSlide * 100}%)`;
@@ -117,21 +156,27 @@ function toggleHighlight() {
 }
 
 function fixCenter() {
-  const flipbook = $('.flipbook');
-  const currentPage = flipbook.turn('page');
-  const totalPages = flipbook.turn('pages');
+  const flipbook = $(".flipbook");
+  const currentPage = flipbook.turn("page");
+  const totalPages = flipbook.turn("pages");
 
-  if (currentPage === 1) {
-    // Halaman cover (kiri kosong)
-    flipbook.css('transform', 'translateX(25%)');
-  } 
-  else if (currentPage === totalPages) {
-    // Halaman terakhir (kanan kosong)
-    flipbook.css('transform', 'translateX(25%)');
-  } 
-  else {
-    // Tengah (2 halaman normal)
-    flipbook.css('transform', 'translateX(25%)');
+  // Deteksi mode mobile (responsive)
+  const isMobile = window.innerWidth <= 768;
+
+  if (isMobile) {
+    // MODE ANDROID / MOBILE
+    flipbook.css('transform', 'translateX(0)');
+  } else {
+    // MODE DESKTOP (punya logic sendiri)
+    if (currentPage === 1) {
+      flipbook.css('transform', 'translateX(25%)');
+    } 
+    else if (currentPage === totalPages) {
+      flipbook.css('transform', 'translateX(25%)');
+    } 
+    else {
+      flipbook.css('transform', 'translateX(25%)');
+    }
   }
 }
 
@@ -146,21 +191,24 @@ btn.addEventListener("click", () => {
   isPlaying = !isPlaying;
 });
 
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = 1;
-      entry.target.style.transform = "translateY(0)";
-    }
-  });
-}, {
-  threshold: 0.2
-});
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = 1;
+        entry.target.style.transform = "translateY(0)";
+      }
+    });
+  },
+  {
+    threshold: 0.2,
+  },
+);
 
 // Klik card
-cards.forEach(card => {
-  card.addEventListener('click', () => {
-    modal.classList.add('active');
+cards.forEach((card) => {
+  card.addEventListener("click", () => {
+    modal.classList.add("active");
 
     modalImg.src = card.dataset.img;
     modalName.textContent = card.dataset.name;
@@ -169,14 +217,14 @@ cards.forEach(card => {
 });
 
 // Tutup modal (X)
-closeBtn.addEventListener('click', () => {
-  modal.classList.remove('active');
+closeBtn.addEventListener("click", () => {
+  modal.classList.remove("active");
 });
 
 // Tutup modal klik luar
-modal.addEventListener('click', (e) => {
+modal.addEventListener("click", (e) => {
   if (e.target === modal) {
-    modal.classList.remove('active');
+    modal.classList.remove("active");
   }
 });
 
